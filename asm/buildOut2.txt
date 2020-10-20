@@ -1,0 +1,40 @@
+   Compiling msp v0.1.0 (/home/mike/rust_on_msp)
+error: the legacy LLVM-style asm! syntax is no longer supported
+  --> src/main.rs:53:5
+   |
+53 |       asm!(r#"
+   |       ^---
+   |       |
+   |  _____help: replace with: `llvm_asm!`
+   | |
+54 | | 1:
+55 | |     dec $0
+56 | |     jne 1b
+57 | |     "# :: "{r12}"(n) : "r12" : "volatile");
+   | |___________________________________________^
+   |
+   = note: consider migrating to the new asm! syntax specified in RFC 2873
+   = note: alternatively, switch to llvm_asm! to keep your code working as it is
+
+error[E0522]: definition of an unknown language item: `panic_fmt`
+  --> src/main.rs:61:1
+   |
+61 | #[lang = "panic_fmt"]
+   | ^^^^^^^^^^^^^^^^^^^^^ definition of unknown language item `panic_fmt`
+
+error: `#[panic_handler]` function required, but not found
+
+error: language item required, but not found: `eh_personality`
+
+error: attribute must be applied to a `static` variable
+  --> src/main.rs:60:1
+   |
+60 | #[used]
+   | ^^^^^^^
+
+error: aborting due to 5 previous errors
+
+For more information about this error, try `rustc --explain E0522`.
+error: could not compile `msp`
+
+To learn more, run the command again with --verbose.

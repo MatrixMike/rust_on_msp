@@ -1,0 +1,33 @@
+   Compiling msp v0.1.0 (/home/mike/rust_on_msp)
+error[E0658]: use of unstable library feature 'llvm_asm': prefer using the new asm! syntax instead
+  --> src/main.rs:53:5
+   |
+53 |     llvm_asm!(r#"
+   |     ^^^^^^^^
+   |
+   = note: see issue #70173 <https://github.com/rust-lang/rust/issues/70173> for more information
+   = help: add `#![feature(llvm_asm)]` to the crate attributes to enable
+
+error[E0522]: definition of an unknown language item: `panic_fmt`
+  --> src/main.rs:61:1
+   |
+61 | #[lang = "panic_fmt"]
+   | ^^^^^^^^^^^^^^^^^^^^^ definition of unknown language item `panic_fmt`
+
+error: `#[panic_handler]` function required, but not found
+
+error: language item required, but not found: `eh_personality`
+
+error: attribute must be applied to a `static` variable
+  --> src/main.rs:60:1
+   |
+60 | #[used]
+   | ^^^^^^^
+
+error: aborting due to 5 previous errors
+
+Some errors have detailed explanations: E0522, E0658.
+For more information about an error, try `rustc --explain E0522`.
+error: could not compile `msp`
+
+To learn more, run the command again with --verbose.
