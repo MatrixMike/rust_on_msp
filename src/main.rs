@@ -50,7 +50,7 @@ pub unsafe extern "C" fn main() -> ! {
 }
 
 unsafe fn delay(n: u16) {
-    asm!(r#"
+    llvm_asm!(r#"
 1:
     dec $0
     jne 1b
